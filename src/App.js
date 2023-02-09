@@ -1,8 +1,9 @@
-import Screen1 from "./Components/Screen1/Screen1";
+import Screen from "./Components/Screen/Screen";
+
 function App() {
   return (
     <div className="App">
-      <Screen1
+      <Screen
       />
     </div>
   );
