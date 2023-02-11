@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './screen.css';
+import Todolist from './Todolist';
 
 const Screen = () => {
     const [input, setInput] = useState();
@@ -13,6 +14,16 @@ const Screen = () => {
             return [...olditems, input]
         })
         setInput('');
+    }
+
+    const delterItems = (id) => {
+        console.log('item deleted');
+
+        setItem((olditems) => {
+            return olditems.filter((arrElem, index) => {
+                return index !== id
+            })
+        })
     }
     return (
         <>
@@ -29,17 +40,21 @@ const Screen = () => {
                         <div className='screen-2 mx-lg-5 mt-5'>
 
 
-                            <div class="card order-list">
-                                <ul class="list-group list-group-flush">
-                                    {item.map((items) => {
-                                        return (
-                                            <li class="list-group-item">{items}</li>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
 
+                            <ul class="list-group list-group-flush">
+                                {item.map((items, index) => {
+                                    return (
+                                        <Todolist
+                                            key={index}
+                                            id={index}
+                                            text={items}
+                                            onSelect={delterItems} />
+                                    )
+                                })}
+                            </ul>
                         </div>
+
+
                     </div>
 
                 </div>
