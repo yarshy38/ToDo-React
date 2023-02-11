@@ -12,6 +12,7 @@ const Screen = () => {
         setItem((olditems) => {
             return [...olditems, input]
         })
+        setInput('');
     }
     return (
         <>
@@ -20,7 +21,7 @@ const Screen = () => {
                     <h2 className='text-center bg-white mt-3'>ToDo List</h2>
                     <div className="col-lg-6">
                         <div className='screen-1 mx-lg-5 mt-5'>
-                            <input type='text' placeholder='what you want to Add?' onChange={inputEvent} />
+                            <input type='text' placeholder='what you want to Add?' value={input} onChange={inputEvent} />
                             <button className='btn btn-primary' onClick={AddThis}>+</button>
                         </div>
                     </div>
